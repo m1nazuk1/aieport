@@ -18,7 +18,11 @@ export default function BuyingForm() {
     }
 
     function submitFlight() {
-        fetch('', {
+        const flightCheck = {
+            fromPlace: document.getElementById('input-from'),
+            toPlace: document.getElementById('input-to')
+        }
+        fetch(`${flightCheck}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('JWT')}`
