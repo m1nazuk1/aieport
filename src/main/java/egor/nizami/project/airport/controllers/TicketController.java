@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/ticket")
 public class TicketController {
 
@@ -51,8 +51,8 @@ public class TicketController {
     }
 
 
-    @GetMapping("/payment/{fromPlace}/{toPlace}")
-    public ResponseEntity<?> payment(@PathVariable String fromPlace, @PathVariable String toPlace) {
+    @GetMapping("/payment")
+    public ResponseEntity<?> payment(@RequestParam("fromPlace") String fromPlace, @RequestParam("toPlace") String toPlace) {
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if (authentication == null || !authentication.isAuthenticated()) {

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyController {
 
     @GetMapping("/protected/resource")
-    @CrossOrigin(origins = "http://localhost:63342")
+    @CrossOrigin(origins = "http://localhost:5173")
     public String getProtectedResource() {
         return "Защищенный ресурс";
     }

@@ -17,50 +17,55 @@ export default function BuyingForm() {
         document.getElementById('hotel-form').classList.add('active')
     }
 
+
     function submitFlight() {
-        const flightCheck = {
-            fromPlace: document.getElementById('input-from'),
-            toPlace: document.getElementById('input-to')
-        }
-        fetch(`${flightCheck}`, {
+        const fromPlace = document.getElementById('input-from').value;
+        const toPlace = document.getElementById('input-to').value;
+        console.log(fromPlace)
+        console.log(toPlace)
+
+        fetch(`http://localhost:8080/ticket/payment?fromPlace=${fromPlace}&toPlace=${toPlace}`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('JWT')}`
+                'Authorization': `Bearer ${localStorage.getItem('JWT')}`,
             }
         })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('User not auth')
+                    console.log(response)
+                    throw new Error('Flights not found')
                 }
                 return response.json()
+                console.log(response)
             })
             .then(data => {
-                const flight = {
-                    fromPlace: document.getElementById('input-from'),
-                    toPlace: document.getElementById('input-to'),
-                    forwardDate: document.getElementById('date-one-way'),
-                    backDate: document.getElementById('date-returning'),
-                    adultsAmount: document.getElementById('adults'),
-                    childrenAmount: document.getElementById('children'),
-                    withReturning: document.querySelector('.switch-input').checked
-                }
-
-                fetch('', {
-                    method: 'GET',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(flight)
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Error flight')
-                        }
-                        return response.json
-                    })
-                    .then(success => {
-
-                    })
+                console.log(data)
+                // const flight = {
+                //     fromPlace: document.getElementById('input-from'),
+                //     toPlace: document.getElementById('input-to'),
+                //     forwardDate: document.getElementById('date-one-way'),
+                //     backDate: document.getElementById('date-returning'),
+                //     adultsAmount: document.getElementById('adults'),
+                //     childrenAmount: document.getElementById('children'),
+                //     withReturning: document.querySelector('.switch-input').checked
+                // }
+                //
+                // fetch('http://localhost:8080/ticket/save', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(flight)
+                // })
+                //     .then(response => {
+                //         if (!response.ok) {
+                //             throw new Error('Error flight')
+                //         }
+                //         return response.json
+                //     })
+                //     .then(success => {
+                //
+                //     })
             })
 
     }
