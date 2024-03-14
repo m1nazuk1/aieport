@@ -1,14 +1,14 @@
 import './MainPageStyles.css'
 import Cap from './Cap.jsx'
-import ModalWindwowRegistration from './ModalWindwowRegistration.jsx'
-import ModalWindwowLogIn from './ModalWindwowLogIn.jsx'
+import ModalWindowRegistration from './ModalWindowRegistration.jsx'
+import ModalWindowLogIn from './ModalWindowLogIn.jsx'
 
 export default function MainPage() {
     return (
         <div>
             <Cap />
-            <ModalWindwowRegistration />
-            <ModalWindwowLogIn />
+            <ModalWindowRegistration />
+            <ModalWindowLogIn />
         </div>
     )
 }

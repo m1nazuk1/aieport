@@ -18,10 +18,47 @@ export default function BuyingForm() {
     }
 
     function submitFlight() {
-        const from = document.getElementById('input-from').value
-        const to = document.getElementById('input-to').value
-        const forwardDate = document.getElementById('date-one-way').value
-        console.log(forwardDate)
+        fetch('', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('JWT')}`
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('User not auth')
+                }
+                return response.json()
+            })
+            .then(data => {
+                const flight = {
+                    fromPlace: document.getElementById('input-from'),
+                    toPlace: document.getElementById('input-to'),
+                    forwardDate: document.getElementById('date-one-way'),
+                    backDate: document.getElementById('date-returning'),
+                    adultsAmount: document.getElementById('adults'),
+                    childrenAmount: document.getElementById('children'),
+                    withReturning: document.querySelector('.switch-input').checked
+                }
+
+                fetch('', {
+                    method: 'GET',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(flight)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error flight')
+                        }
+                        return response.json
+                    })
+                    .then(success => {
+
+                    })
+            })
+
     }
 
     return (

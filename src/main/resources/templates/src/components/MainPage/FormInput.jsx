@@ -9,7 +9,7 @@ export default function FormInput(props) {
             <span>
                 {props.text}
             </span>
-            <input type={props.type} id={props.id} placeholder={(props.type != 'password' && props.type != 'date') ? props.placeholder : ''} min={props.type == 'date' ? `${year}-${month}-${day}` : ''} defaultValue={props.type == 'date' ? `${year}-${month}-${day}` : ''} />
+            <input type={props.type} id={props.id} placeholder={(props.type != 'password' && props.type != 'date') ? props.placeholder : ''} min={(props.type == 'date' && props.today) ? `${year}-${month}-${day}` : ''} defaultValue={props.type == 'date' ? `${year}-${month}-${day}` : ''} />
         </div>
     )
 }

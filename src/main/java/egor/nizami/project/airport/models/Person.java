@@ -43,7 +43,7 @@ public class Person {
     private String birthday;
 
     @NotEmpty(message = "номер телефона не должен быть пустым")
-    @Min(value = 0)
+    //@Min(value = 0)
 //    @Pattern(regexp = "\\\\+?[1-9][0-9]{7,14}")    -   доделать
     @Column(name = "phone")
     private String phone;
