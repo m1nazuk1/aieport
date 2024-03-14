@@ -14,6 +14,7 @@
     --registration-submit-background-color: #4879db;
     --registration-submit-hover-background-color: blue;
     --border-input-color: black;
+    --header-shadow-color: #464b4f;
 }
 
 * {
@@ -70,6 +71,8 @@ header {
     top: 0;
     left: 0;
     transition: all 1s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0px 1px 8px var(--header-shadow-color);
 }
 
 header img {
@@ -117,6 +120,7 @@ header img {
     margin: 0 50px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    box-shadow: 0px 4px 8px var(--header-shadow-color);
 }
 
 .transform-to-small img {

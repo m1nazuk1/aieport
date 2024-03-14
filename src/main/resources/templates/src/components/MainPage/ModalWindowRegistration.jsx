@@ -2,7 +2,7 @@ import cancel from '../../images/cancel.png'
 import FormInput from './FormInput.jsx'
 import Button from './Button.jsx'
 
-export default function ModalWindwowRegistration() {
+export default function ModalWindowRegistration() {
     function closeRegistration() {
         document.getElementById('modal-registration').classList.remove('active')
         document.querySelector('body').classList.remove('modal-open')
@@ -19,10 +19,11 @@ export default function ModalWindwowRegistration() {
             password: document.getElementById('registration-password').value,
             repeatPassword: document.getElementById('registration-repeat-password').value
         }
+
         fetch('http://localhost:8080/api/auth/registration', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
         })
@@ -32,9 +33,11 @@ export default function ModalWindwowRegistration() {
                 errorMessage.textContent = data.message;
             } else {
                 console.log('JWT Token:', data['jwt-token']);
+                localStorage.setItem('JWT', data['jwt-token'])
             }
         })
         .catch(error => console.error('Ошибка:', error));
+        closeRegistration();
     }
 
     return (
@@ -51,7 +54,7 @@ export default function ModalWindwowRegistration() {
                         <FormInput placeholder='Ivanov' text='Surname:' type='text' id='registration-surname' />
                         <FormInput placeholder='Ivan' text='Name:' type='text' id='registration-name' />
                         <FormInput placeholder='Ivanov' text='Patronimyc:' type='text' id='registration-patronimyc' />
-                        <FormInput text='Birthday:' type='date' id='registration-birthday' />
+                        <FormInput text='Birthday:' type='date' id='registration-birthday' today={false} />
                     </div>
                     <div>
                         <FormInput placeholder='89993728812' text='Phone:' type='text' id='registration-phone' />
