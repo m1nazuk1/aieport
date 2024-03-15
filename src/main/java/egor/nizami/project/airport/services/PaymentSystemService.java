@@ -19,7 +19,12 @@ public class PaymentSystemService {
     @Transactional
     public void save(PaymentSystem paymentSystem, int personId){
         paymentSystem.setPersonId(personId);
-        paymentSystemsRepository.save(paymentSystem);
+        if ((paymentSystemsRepository.findByPersonId(personId)) == null) {
+            paymentSystemsRepository.save(paymentSystem);
+        }else {
+            paymentSystemsRepository.deleteByPersonId(personId);
+            paymentSystemsRepository.save(paymentSystem);
+        }
     }
 
 
