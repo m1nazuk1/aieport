@@ -23,6 +23,12 @@ public class TicketService {
         this.personService = personService;
     }
 
+    @Transactional
+    public void save(Ticket ticket, int personId){
+        ticket.setPersonId(personId);
+        ticketsRepository.save(ticket);
+    }
+
 
     public List<Ticket> findAllTicketForUser(int personId){
         List<Ticket> allTickets = ticketsRepository.findAllByPersonId(personId);

@@ -28,7 +28,6 @@ public class PaymentSystem {
     @Column(name = "cvv")
     private String cvv;
 
-    @NotEmpty(message = "поле не должно быть пустым")
     @Column(name = "person_id")
     private int personId;
 

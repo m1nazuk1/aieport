@@ -15,7 +15,10 @@ public class TicketDTO {
     private String whereTo;
 
     @NotEmpty(message = "поле не должно быть пустым")
-    private String flightDate;
+    private String flightDateForth;
+
+
+    private String flightDateBack;
 
     @Min(value = 0, message = "людей не может быть отрицательное количество")
     private int children;
@@ -23,6 +26,15 @@ public class TicketDTO {
     @Min(value = 0, message = "людей не может быть отрицательное количество")
     private int adults;
 
+
+    public TicketDTO(String whereFrom, String whereTo, String flightDateForth, String flightDateBack, int children, int adults) {
+        this.whereFrom = whereFrom;
+        this.whereTo = whereTo;
+        this.flightDateForth = flightDateForth;
+        this.flightDateBack = flightDateBack;
+        this.children = children;
+        this.adults = adults;
+    }
 
     public String getWhereFrom() {
         return whereFrom;
@@ -40,13 +52,6 @@ public class TicketDTO {
         this.whereTo = whereTo;
     }
 
-    public String getFlightDate() {
-        return flightDate;
-    }
-
-    public void setFlightDate(String flightDate) {
-        this.flightDate = flightDate;
-    }
 
     public int getChildren() {
         return children;
@@ -67,14 +72,19 @@ public class TicketDTO {
     public TicketDTO() {
     }
 
-    @Override
-    public String toString() {
-        return "TicketDTO{" +
-                "whereFrom='" + whereFrom + '\'' +
-                ", whereTo='" + whereTo + '\'' +
-                ", flightDate='" + flightDate + '\'' +
-                ", children=" + children +
-                ", adults=" + adults +
-                '}';
+    public String getFlightDateForth() {
+        return flightDateForth;
+    }
+
+    public void setFlightDateForth(String flightDateForth) {
+        this.flightDateForth = flightDateForth;
+    }
+
+    public String getFlightDateBack() {
+        return flightDateBack;
+    }
+
+    public void setFlightDateBack(String flightDateBack) {
+        this.flightDateBack = flightDateBack;
     }
 }

@@ -42,7 +42,6 @@ public class Ticket {
     @Column(name = "adults")
     private int adults;
 
-    @NotEmpty
     @Column(name = "person_id")
     private int personId;
 

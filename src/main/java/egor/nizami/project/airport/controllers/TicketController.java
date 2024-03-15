@@ -95,11 +95,10 @@ public class TicketController {
 
             Person person = personService.foundByUsername(authentication.getName());
 
-
-
+            ticketService.save(ticket, person.getId());
 
             return ResponseEntity.ok(Map.of(
-                    "myTicket", ticket));
+                    "ticket", ticket));
 
         } catch (ClassCastException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ошибка при обработке данных пользователя");

@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/api/auth/login", "/api/auth/registration", "/error", "/ticket/payment",
                         "/flights/listAllFlightsName", "/user/personalInformation", "/ticket/save",
-                        "/paymentSystem/save", "/paymentSystem/getInformation", "/user/").permitAll()
+                        "/paymentSystem/save", "/paymentSystem/getInformation", "/user/ticketInformation").permitAll()
                 .antMatchers("/ticket/a").authenticated()
                 .anyRequest().hasAnyRole("USER", "ADMIN")
                 .and()
