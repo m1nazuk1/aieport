@@ -9,6 +9,7 @@ export default function MainPage() {
             <Cap />
             <ModalWindowRegistration />
             <ModalWindowLogIn />
+
         </div>
     )
 }
