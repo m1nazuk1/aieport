@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface TicketsRepository extends JpaRepository<Ticket, Integer> {
+    List<Ticket> findAllByPersonId(int personId);
 
 //    Optional<Ticket> findByWhere(String username);
 

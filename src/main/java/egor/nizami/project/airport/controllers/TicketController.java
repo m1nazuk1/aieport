@@ -19,7 +19,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
@@ -85,28 +84,29 @@ public class TicketController {
     @ResponseBody
     public ResponseEntity<?> saveTicket(@RequestBody TicketDTO ticketDTO, BindingResult bindingResult) throws IOException {
 
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        if (authentication == null || !authentication.isAuthenticated()) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь не аутентифицирован");
-//        }
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication == null || !authentication.isAuthenticated()) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь не аутентифицирован");
+            }
 
-        Ticket ticket = convertToTicket(ticketDTO);
 
-        // ticketValidators
+            Ticket ticket = convertToTicket(ticketDTO);
 
-        if (bindingResult.hasErrors()){
+            Person person = personService.foundByUsername(authentication.getName());
+
+            ticketService.save(ticket, person.getId());
+
+            return ResponseEntity.ok(Map.of(
+                    "ticket", ticket));
+
+        } catch (ClassCastException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ошибка при обработке данных пользователя");
-//            return Map.of("message", "ошибка при валидации: " + bindingResult.getFieldError());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Внутренняя ошибка сервера");
         }
 
-        Person person = personService.foundByUsername("alekperov-nizam@mail.ru");
-
-        ticketService.createTicket(ticket, person);
-
-        return ResponseEntity.ok(Map.of(
-                "myTicket", ticket));
-
-//        return Map.of("jwt-token", token);
     }
 
 
@@ -114,32 +114,6 @@ public class TicketController {
         return this.modelMapper.map(ticketDTO, Ticket.class);
     }
 
-
-
-    @GetMapping("/show/{email}")
-    @ResponseBody
-    public ResponseEntity<?> showProfile(@PathVariable("email") String email){
-//        try {
-//            Person person = personService.foundByUsername(email);
-//            ArrayList<Ticket> tickets = ticketService.findTicketByUserEmail(person.getEmail());
-//            System.out.println(ticket);
-//            return ResponseEntity.ok(Map.of(
-//                    "firstname", person.getUserName(),
-//                    "lastname", person.getSurname(),
-//                    "Patronimyc", person.getPatronimyc(),
-//                    "Birthday", person.getBirthday(),
-//                    "Phone", person.getPhone(),
-//                    "password", person.getPassword(),
-//                    "ticketsId", person.getTickets()));
-//        }catch (ClassCastException e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ошибка при обработке данных пользователя");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Внутренняя ошибка сервера");
-//        }
-//
-        return ResponseEntity.ok("");
-    }
 
 
 }

@@ -38,12 +38,6 @@ public class PersonService {
         peopleRepository.save(personNew);
     }
 
-    @Transactional public void updateTickets(String email, List<Ticket> tickets){
-        Person personOld = foundByUsername(email);
-        personOld.setTickets(tickets);
-        peopleRepository.save(personOld);
-    }
-
     public List<Person> returnAllUsersExceptMe(String username){
         List<Person> users = peopleRepository.findAll();
         System.out.println(users);

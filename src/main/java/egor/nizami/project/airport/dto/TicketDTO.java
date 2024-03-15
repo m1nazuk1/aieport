@@ -8,29 +8,33 @@ import javax.validation.constraints.Size;
 public class TicketDTO {
     @NotEmpty(message = "поле не должно быть пустым")
     @Size(min = 2, max = 100, message = "поле должно быть от 2 до 100 символов длиной")
-    @Column(name = "where_from")
     private String whereFrom;
 
     @NotEmpty(message = "поле не должно быть пустым")
     @Size(min = 2, max = 100, message = "поле должно быть от 2 до 100 символов длиной")
-    @Column(name = "where_to")
     private String whereTo;
 
     @NotEmpty(message = "поле не должно быть пустым")
-    @Column(name = "flight_date")
-    private String flightDate;
+    private String flightDateForth;
+
+
+    private String flightDateBack;
 
     @Min(value = 0, message = "людей не может быть отрицательное количество")
-    @Column(name = "сhildren")
     private int children;
 
     @Min(value = 0, message = "людей не может быть отрицательное количество")
-    @Column(name = "adults")
     private int adults;
 
 
-
-
+    public TicketDTO(String whereFrom, String whereTo, String flightDateForth, String flightDateBack, int children, int adults) {
+        this.whereFrom = whereFrom;
+        this.whereTo = whereTo;
+        this.flightDateForth = flightDateForth;
+        this.flightDateBack = flightDateBack;
+        this.children = children;
+        this.adults = adults;
+    }
 
     public String getWhereFrom() {
         return whereFrom;
@@ -48,13 +52,6 @@ public class TicketDTO {
         this.whereTo = whereTo;
     }
 
-    public String getFlightDate() {
-        return flightDate;
-    }
-
-    public void setFlightDate(String flightDate) {
-        this.flightDate = flightDate;
-    }
 
     public int getChildren() {
         return children;
@@ -75,14 +72,19 @@ public class TicketDTO {
     public TicketDTO() {
     }
 
-    @Override
-    public String toString() {
-        return "TicketDTO{" +
-                "whereFrom='" + whereFrom + '\'' +
-                ", whereTo='" + whereTo + '\'' +
-                ", flightDate='" + flightDate + '\'' +
-                ", children=" + children +
-                ", adults=" + adults +
-                '}';
+    public String getFlightDateForth() {
+        return flightDateForth;
+    }
+
+    public void setFlightDateForth(String flightDateForth) {
+        this.flightDateForth = flightDateForth;
+    }
+
+    public String getFlightDateBack() {
+        return flightDateBack;
+    }
+
+    public void setFlightDateBack(String flightDateBack) {
+        this.flightDateBack = flightDateBack;
     }
 }
