@@ -25,7 +25,7 @@ export default function BuyingForm() {
         fetch(`http://localhost:8080/ticket/payment?fromPlace=${fromPlace}&toPlace=${toPlace}`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('JWT')}`,
+                'Authorization': `Bearer ${localStorage.getItem('JWT')}`
             }
         })
             .then(response => {
@@ -37,32 +37,54 @@ export default function BuyingForm() {
             })
             .then(data => {
                 console.log(data)
-                const flight = {
-                    fromPlace: document.getElementById('input-from'),
-                    toPlace: document.getElementById('input-to'),
-                    forwardDate: document.getElementById('date-one-way'),
-                    backDate: document.getElementById('date-returning'),
-                    adultsAmount: document.getElementById('adults'),
-                    childrenAmount: document.getElementById('children'),
-                    withReturning: document.querySelector('.switch-input').checked
+                if (data.HasFlights === 'true') {
+                    const cardData = {
+                        cardNumber: '1234567890',
+                        cardDate: '07.26',
+                        cvv: '123'
+                    }
+
+                    fetch('http://localhost:8080/paymentSystem/save', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('JWT')}`
+                        },
+                        body: JSON.stringify(cardData)
+                    })
+                        .then(response => {
+                            if (!response) {
+                                throw new Error('User not auth')
+                            }
+                            return response.json()
+                        })
+
+                    const dateBack = document.querySelector('.switch-input').checked ? document.getElementById('date-returning').value : null
+
+                    const flight = {
+                        whereFrom: document.getElementById('input-from').value,
+                        whereTo: document.getElementById('input-to').value,
+                        flightDateForth: document.getElementById('date-one-way').value,
+                        flightDateBack: dateBack,
+                        adults: parseInt(document.getElementById('adults').textContent),
+                        children: parseInt(document.getElementById('children').textContent),
+                    }
+
+                    fetch('http://localhost:8080/ticket/save', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('JWT')}`
+                        },
+                        body: JSON.stringify(flight)
+                    })
+                        .then(response => {
+                            if (!response) {
+                                throw new Error('User not auth')
+                            }
+                            return response.json()
+                        })
                 }
-
-                fetch('http://localhost:8080/ticket/save', {
-                    method: 'POST',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(flight)
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Error flight')
-                        }
-                        return response.json
-                    })
-                    .then(success => {
-
-                    })
             })
 
     }

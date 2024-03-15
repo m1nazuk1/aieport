@@ -49,7 +49,7 @@ public class PaymentSystemsController {
             paymentSystemService.save(paymentSystem, person.getId());
 
 
-            return ResponseEntity.ok("платежные данные успешно сохранены");
+            return ResponseEntity.ok(Map.of("payment", paymentSystem));
 
         } catch (ClassCastException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ошибка при обработке данных пользователя");
