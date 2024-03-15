@@ -5,7 +5,7 @@ import egor.nizami.project.airport.dto.PersonDTO;
 import egor.nizami.project.airport.models.Person;
 import egor.nizami.project.airport.security.JWTUtil;
 import egor.nizami.project.airport.security.PersonDetails;
-import egor.nizami.project.airport.services.ImageService;
+//import egor.nizami.project.airport.services.ImageService;
 import egor.nizami.project.airport.services.PersonDetailsService;
 import egor.nizami.project.airport.services.RegistrationService;
 import egor.nizami.project.airport.util.PersonValidator;
@@ -31,7 +31,7 @@ import java.util.Map;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final ImageService imageService;
+//    private final ImageService imageService;
     private final RegistrationService registrationService;
     private final PersonValidator personValidator;
     private final JWTUtil jwtUtil;
@@ -41,10 +41,9 @@ public class AuthController {
     private final PersonDetailsService personDetailsService;
 
 
-    public AuthController(ImageService imageService, RegistrationService registrationService, PersonValidator personValidator,
+    public AuthController(RegistrationService registrationService, PersonValidator personValidator,
                           JWTUtil jwtUtil, ModelMapper modelMapper, AuthenticationManager authenticationManager,
                           PersonDetailsService personDetailsService) {
-        this.imageService = imageService;
         this.registrationService = registrationService;
         this.personValidator = personValidator;
         this.jwtUtil = jwtUtil;
@@ -64,6 +63,7 @@ public class AuthController {
             return Map.of("message", "ошибка при валидации: " + bindingResult.getFieldError());
         }
 
+        System.out.println(person);
         registrationService.register(person);
 
         String token = jwtUtil.generateToken(person.getUserName());

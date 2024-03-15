@@ -19,13 +19,6 @@ public class TicketService {
         this.personService = personService;
     }
 
-    @Transactional
-    public void createTicket(Ticket ticket, Person person){
-        person.addTicketToProduct(ticket);
-        personService.updateTickets(person.getEmail(), person.getTickets());
-        ticket.setPerson(person);
-        ticketsRepository.save(ticket);
-    }
 
 //    public ArrayList<Ticket> findTicketByUserEmail(String email){
 //        Person person = personService.foundByUsername(email);

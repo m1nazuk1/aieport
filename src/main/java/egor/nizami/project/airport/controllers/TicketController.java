@@ -101,7 +101,6 @@ public class TicketController {
 
         Person person = personService.foundByUsername("alekperov-nizam@mail.ru");
 
-        ticketService.createTicket(ticket, person);
 
         return ResponseEntity.ok(Map.of(
                 "myTicket", ticket));

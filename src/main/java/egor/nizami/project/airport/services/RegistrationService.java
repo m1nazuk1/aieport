@@ -1,8 +1,8 @@
 package egor.nizami.project.airport.services;
 
-import egor.nizami.project.airport.models.Image;
+//import egor.nizami.project.airport.models.Image;
 import egor.nizami.project.airport.models.Person;
-import egor.nizami.project.airport.repositories.ImagesRepository;
+//import egor.nizami.project.airport.repositories.ImagesRepository;
 import egor.nizami.project.airport.repositories.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,13 +20,12 @@ public class RegistrationService {
 
     private final PeopleRepository peopleRepository;
     private final PasswordEncoder passwordEncoder;
-    private final ImagesRepository imagesRepository;
+//    private final ImagesRepository imagesRepository;
 
     @Autowired
-    public RegistrationService(PeopleRepository peopleRepository, PasswordEncoder passwordEncoder, ImagesRepository imagesRepository) {
+    public RegistrationService(PeopleRepository peopleRepository, PasswordEncoder passwordEncoder) {
         this.peopleRepository = peopleRepository;
         this.passwordEncoder = passwordEncoder;
-        this.imagesRepository = imagesRepository;
     }
 
     @Transactional

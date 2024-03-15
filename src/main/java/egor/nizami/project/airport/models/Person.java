@@ -62,14 +62,6 @@ public class Person {
     @Column(name = "role")
     private String role;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "person")
-    @JsonManagedReference
-    private List<Ticket> tickets = new ArrayList<>();
-
-    public void addTicketToProduct(Ticket ticket) {
-        ticket.setPerson(this);
-        tickets.add(ticket);
-    }
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "person")
 //    @JsonManagedReference
@@ -96,13 +88,6 @@ public class Person {
         this.password = password;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
 
     public int getId() {
         return id;

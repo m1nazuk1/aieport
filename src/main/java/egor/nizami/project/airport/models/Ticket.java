@@ -28,8 +28,13 @@ public class Ticket {
     private String whereTo;
 
     @NotEmpty(message = "поле не должно быть пустым")
-    @Column(name = "flight_date")
-    private String flightDate;
+    @Column(name = "flight_date_forth")
+    private String flightDateForth;
+
+
+    @Column(name = "flight_date_back")
+    private String flightDateBack;
+
 
     @Min(value = 0, message = "людей не может быть отрицательное количество")
     @Column(name = "сhildren")
@@ -39,23 +44,48 @@ public class Ticket {
     @Column(name = "adults")
     private int adults;
 
+    @NotEmpty
+    @Column(name = "person_id")
+    private int person_id;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JsonBackReference
-    private Person person;
 
-
-    public Ticket(String whereFrom, String whereTo, String flightDate, int children, int adults) {
-        this.whereFrom = whereFrom;
-        this.whereTo = whereTo;
-        this.flightDate = flightDate;
-        this.children = children;
-        this.adults = adults;
-    }
 
     public Ticket() {
     }
 
+    public Ticket(String whereFrom, String whereTo, String flightDateForth, String flightDateBack, int children, int adults, int person_id) {
+        this.whereFrom = whereFrom;
+        this.whereTo = whereTo;
+        this.flightDateForth = flightDateForth;
+        this.flightDateBack = flightDateBack;
+        this.children = children;
+        this.adults = adults;
+        this.person_id = person_id;
+    }
+
+    public String getFlightDateForth() {
+        return flightDateForth;
+    }
+
+    public void setFlightDateForth(String flightDateForth) {
+        this.flightDateForth = flightDateForth;
+    }
+
+    public String getFlightDateBack() {
+        return flightDateBack;
+    }
+
+    public void setFlightDateBack(String flightDateBack) {
+        this.flightDateBack = flightDateBack;
+    }
+
+    public int getPerson_id() {
+        return person_id;
+    }
+
+    public void setPerson_id(int person_id) {
+        this.person_id = person_id;
+    }
 
     public int getId() {
         return id;
@@ -81,13 +111,7 @@ public class Ticket {
         this.whereTo = whereTo;
     }
 
-    public String getFlightDate() {
-        return flightDate;
-    }
 
-    public void setFlightDate(String flightDate) {
-        this.flightDate = flightDate;
-    }
 
     public int getChildren() {
         return children;
@@ -106,11 +130,4 @@ public class Ticket {
     }
 
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 }
