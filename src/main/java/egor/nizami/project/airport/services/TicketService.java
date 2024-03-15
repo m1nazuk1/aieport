@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TicketService {
@@ -22,6 +23,11 @@ public class TicketService {
         this.personService = personService;
     }
 
+
+    public List<Ticket> findAllTicketForUser(int personId){
+        List<Ticket> allTickets = ticketsRepository.findAllByPersonId(personId);
+        return allTickets;
+    }
 
 
 //    public ArrayList<Ticket> findTicketByUserEmail(String email){

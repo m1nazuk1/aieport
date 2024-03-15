@@ -1,8 +1,6 @@
 package egor.nizami.project.airport.models;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -46,21 +44,21 @@ public class Ticket {
 
     @NotEmpty
     @Column(name = "person_id")
-    private int person_id;
+    private int personId;
 
 
 
     public Ticket() {
     }
 
-    public Ticket(String whereFrom, String whereTo, String flightDateForth, String flightDateBack, int children, int adults, int person_id) {
+    public Ticket(String whereFrom, String whereTo, String flightDateForth, String flightDateBack, int children, int adults, int personId) {
         this.whereFrom = whereFrom;
         this.whereTo = whereTo;
         this.flightDateForth = flightDateForth;
         this.flightDateBack = flightDateBack;
         this.children = children;
         this.adults = adults;
-        this.person_id = person_id;
+        this.personId = personId;
     }
 
     public String getFlightDateForth() {
@@ -79,12 +77,12 @@ public class Ticket {
         this.flightDateBack = flightDateBack;
     }
 
-    public int getPerson_id() {
-        return person_id;
+    public int getPersonId() {
+        return personId;
     }
 
-    public void setPerson_id(int person_id) {
-        this.person_id = person_id;
+    public void setPersonId(int person_id) {
+        this.personId = person_id;
     }
 
     public int getId() {

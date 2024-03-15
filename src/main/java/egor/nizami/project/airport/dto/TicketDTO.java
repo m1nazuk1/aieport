@@ -8,28 +8,20 @@ import javax.validation.constraints.Size;
 public class TicketDTO {
     @NotEmpty(message = "поле не должно быть пустым")
     @Size(min = 2, max = 100, message = "поле должно быть от 2 до 100 символов длиной")
-    @Column(name = "where_from")
     private String whereFrom;
 
     @NotEmpty(message = "поле не должно быть пустым")
     @Size(min = 2, max = 100, message = "поле должно быть от 2 до 100 символов длиной")
-    @Column(name = "where_to")
     private String whereTo;
 
     @NotEmpty(message = "поле не должно быть пустым")
-    @Column(name = "flight_date")
     private String flightDate;
 
     @Min(value = 0, message = "людей не может быть отрицательное количество")
-    @Column(name = "сhildren")
     private int children;
 
     @Min(value = 0, message = "людей не может быть отрицательное количество")
-    @Column(name = "adults")
     private int adults;
-
-
-
 
 
     public String getWhereFrom() {
