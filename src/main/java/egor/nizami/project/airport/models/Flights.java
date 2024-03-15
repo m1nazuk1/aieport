@@ -22,6 +22,7 @@ public class Flights {
     @Column(name = "to_place")
     private String toPlace;
 
+
     public int getId() {
         return id;
     }
