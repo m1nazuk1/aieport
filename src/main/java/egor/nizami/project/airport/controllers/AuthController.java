@@ -87,13 +87,6 @@ public class AuthController {
         return ResponseEntity.ok(Map.of("message", "данные пользователя успешно изменены"));
     }
 
-    //JSON:
-    // {
-    //      "username": "aaa",
-    //      "password": "aaa"
-    // }
-
-    //если мы хотим принять в контроллер этот ОБЪЕКТ , то нам нужен объект класса с совпадающими названиями полей
 
     @PostMapping("/login")
     public Map<String, String> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {

@@ -71,9 +71,13 @@ public class PaymentSystemsController {
             Person person = personService.foundByUsername(authentication.getName());
             PaymentSystem paymentSystem = paymentSystemService.foundPaymentForUser(person.getId());
 
-            return ResponseEntity.ok(Map.of("cardNumber", paymentSystem.getCardNumber(),
-                    "date", paymentSystem.getCardDate(),
-                    "cvv", paymentSystem.getCvv()));
+            if (paymentSystem == null){
+                return ResponseEntity.ok(Map.of("paymentSystem", "данных нет, Надо их ввести"));
+            }else {
+                return ResponseEntity.ok(Map.of("cardNumber", paymentSystem.getCardNumber(),
+                        "date", paymentSystem.getCardDate(),
+                        "cvv", paymentSystem.getCvv()));
+            }
         } catch (ClassCastException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ошибка при обработке данных пользователя");
         } catch (Exception e) {
