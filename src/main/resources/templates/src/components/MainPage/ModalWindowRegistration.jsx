@@ -41,31 +41,7 @@ export default function ModalWindowRegistration() {
             }
         })
         .catch(error => console.error('Ошибка:', error));
-        const image = new Image()
-        image.src = standartProfileImage
-        const formData = new FormData();
-        formData.append('image', image);
-        const token = localStorage.getItem('JWT');
 
-        // fetch(`http://localhost:8080/api/auth/forImage`, {
-        //     method: 'POST',
-        //     body: formData,
-        //     headers:{
-        //         'Authorization': `Bearer ${token}`,
-        //     }
-        // })
-        //     .then(response => {
-        //         if (!response.ok) {
-        //             throw new Error('Ошибка при обновлении данных пользователя');
-        //         }
-        //         return response.json();
-        //     })
-        //     .then(data => {
-        //         if (data.message) {
-        //             alert(data.message);
-        //         }
-        //     })
-        //     .catch(error => console.error('Ошибка:', error));
     }
 
     return (

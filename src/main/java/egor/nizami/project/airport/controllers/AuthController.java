@@ -75,14 +75,14 @@ public class AuthController {
 
     @PostMapping("/forImage")
     public ResponseEntity<?> forImage(@RequestParam("image") MultipartFile image) throws IOException {
-        System.out.println("aasssddd");
+        System.out.println("\naasssddd\n");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь не аутентифицирован");
         }
         Person person = personDetailsService.loadPersonByUsername(((PersonDetails) authentication.getPrincipal()).getUsername());
 
-        imageService.enterImageId(person.getUserName(), image);
+        imageService.enterImageId(person.getEmail(), image);
 
         return ResponseEntity.ok(Map.of("message", "данные пользователя успешно изменены"));
     }
