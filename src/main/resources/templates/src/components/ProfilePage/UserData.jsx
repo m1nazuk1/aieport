@@ -28,6 +28,7 @@ export default function UserData() {
                 setName(data.name)
                 setPatronimyc(data.patronimyc)
                 setEmail(data.email)
+                localStorage.setItem('email', data.email)
                 setPhone(data.phone)
                 setBirthday(data.birthday)
             })

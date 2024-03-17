@@ -1,6 +1,21 @@
-import profilePhoto from '../../images/profile_photo.jpg'
+import {useEffect, useState} from "react";
+import photo from '../../images/profile_photo.jpg'
 
 export default  function ProfilePhoto() {
+    const [profilePhoto, setProfilePhoto] = useState(photo)
+
+    useEffect(() => {
+        const imageUrl = `http://localhost:8080/image/${localStorage.getItem('email')}`;
+        fetch(imageUrl)
+            .then(response => response.blob())
+            .then(imageBlob => {
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                if (imageObjectURL != '') {
+                    document.getElementById('profile-photo').src = imageObjectURL;
+                }
+            })
+            .catch(error => console.error('Ошибка загрузки изображения:', error));
+    }, []);
     function submitPhotoForm(e){
         e.preventDefault()
         const image = document.getElementById('download-profile-photo').files[0]
@@ -28,12 +43,13 @@ export default  function ProfilePhoto() {
                 }
             })
             .catch(error => console.error('Ошибка:', error));
+        location.reload()
     }
 
     return (
         <div>
             <form id='profile-photo-editing' encType='multipart/form-data' onSubmit={e => submitPhotoForm(e)}>
-                <img src={profilePhoto} alt="profile photo"/>
+                <img src='' alt="profile photo" id='profile-photo'/>
                 <label htmlFor="download-profile-photo">
                     Edit profile photo
                 </label>
