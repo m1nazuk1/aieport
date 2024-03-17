@@ -2,6 +2,7 @@ import './ProfilePhotoStyles.css'
 import UserInfo from "./UserInfo.jsx";
 import TicketsInfo from "./TicketsInfo.jsx";
 import BlackLine from "./BlackLine.jsx";
+import CardBuyingForm from "../MainPage/CardBuyingForm.jsx";
 
 export default function ProfilePage() {
     function loadTickets() {

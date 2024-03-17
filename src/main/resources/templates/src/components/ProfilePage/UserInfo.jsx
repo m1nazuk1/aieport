@@ -1,6 +1,7 @@
 import ProfilePhoto from "./ProfilePhoto.jsx";
 import UserData from "./UserData.jsx";
 import CardData from "./CardData.jsx";
+import CardBuyingForm from "../MainPage/CardBuyingForm.jsx";
 
 export default function UserInfo() {
     return (
@@ -12,6 +13,7 @@ export default function UserInfo() {
                 <ProfilePhoto />
                 <UserData />
                 <CardData />
+                <CardBuyingForm/>
             </div>
         </div>
     )

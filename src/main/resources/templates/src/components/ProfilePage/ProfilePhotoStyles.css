@@ -56,7 +56,7 @@ body {
     top: 40px;
 }
 
-#user-info img {
+#profile-photo {
     width: 200px;
     height: 200px;
     border-radius: 100px;
@@ -86,6 +86,7 @@ body {
     justify-content: space-between;
     width: 300px;
     padding: 20px;
+    height: 200px;
     border: 2px solid black;
     border-radius: 30px;
 }
@@ -116,14 +117,17 @@ body {
     display: none;
 }
 
+#card {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
 #card-data {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 400px;
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 30px;
 }
 
 #attribute-names-card {
@@ -138,3 +142,57 @@ body {
     margin: 30px auto;
 }
 
+#if-not-card span {
+    display: block;
+    color: red;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#if-not-card.active {
+    display: block;
+}
+
+#if-not-card {
+    display: none;
+}
+
+#if-not-card button {
+    background-color: var(--registration-submit-background-color);
+    cursor: pointer;
+    padding: 15px 30px;
+    border-radius: 27px;
+    border: 2px solid black;
+    margin: 0 140px;
+}
+
+#if-not-card button:hover {
+    background-color: var(--registration-submit-hover-background-color);
+}
+
+#edit-card {
+    display: none;
+}
+
+#edit-card.active {
+    display: block;
+}
+
+#edit-card span {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+#edit-card button {
+    background-color: var(--registration-submit-background-color);
+    cursor: pointer;
+    padding: 15px 30px;
+    border-radius: 27px;
+    border: 2px solid black;
+    margin: 0 90px;
+}
+
+#edit-card button:hover {
+    background-color: var(--registration-submit-hover-background-color);
+}
