@@ -39,8 +39,8 @@ export default function BuyingForm() {
                 console.log(data)
                 if (data.HasFlights === 'true') {
                     const cardData = {
-                        cardNumber: '1234567890',
-                        cardDate: '07.26',
+                        cardNumber: '4234567890',
+                        cardDate: '10.26',
                         cvv: '123'
                     }
 
@@ -70,7 +70,7 @@ export default function BuyingForm() {
                         children: parseInt(document.getElementById('children').textContent),
                     }
 
-                    fetch('http://localhost:8080/ticket/save', {
+                    fetch('http://locsrc/main/cket/save', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

@@ -24,15 +24,16 @@ export default function ModalWindowLogIn() {
             .then(response => response.json())
             .then(data => {
                 if (data.message) {
-                    errorMessage.textContent = data.message;
                     console.log(data.message)
+                    document.getElementById('not-find-user').classList.add('active')
                 } else {
                     console.log('JWT Token:', data['jwt-token']);
                     localStorage.setItem('JWT', data['jwt-token'])
+                    document.getElementById('not-find-user').classList.remove('active')
+                    closeLogIn()
+                    document.location.href += 'logined'
                 }
             })
-            .catch(error => console.error('Ошибка:', error));
-        closeLogIn();
     }
 
     return (
@@ -45,18 +46,23 @@ export default function ModalWindowLogIn() {
                     <img src={cancel} alt='cancel' onClick={closeLogIn} />
                 </div>
                 <div id='container-log-in-blocks'>
-                    <FormInput placeholder='example@domen.ru' text='Email:' type='email' id='log-in-email' />
-                    <FormInput text='Password:' type='password' id='log-in-password' />
+                    <FormInput placeholder='example@domen.ru' text='Email:' type='email' id='log-in-email'/>
+                    <FormInput text='Password:' type='password' id='log-in-password'/>
                     <div className='checkbox-submit-container'>
                         <div className='checkbox-container'>
-                            <input type='checkbox' />
+                            <input type='checkbox'/>
                             <span>
                                 Remember me
                             </span>
                         </div>
                         <div>
-                            <Button id='log-in-submit-button' text='Log In' click={sendLogInForm} />
+                            <Button id='log-in-submit-button' text='Log In' click={sendLogInForm}/>
                         </div>
+                    </div>
+                    <div id='not-find-user'>
+                        <span>
+                            Incorrect username or password
+                        </span>
                     </div>
                 </div>
                 <a href="/Profile">Profile</a>

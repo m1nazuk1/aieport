@@ -16,6 +16,8 @@
     --border-input-color: black;
     --header-shadow-color: #464b4f;
     --card-background-color: white;
+    --incorrect-form-color: red;
+    --content-background-color: white;
 }
 
 * {
@@ -91,7 +93,9 @@ header img {
 }
 
 #registration-button,
-#log-in-button {
+#log-in-button,
+#profile-button,
+#log-out-button{
     background: none;
     border: none;
     font-size: 25px;
@@ -131,6 +135,8 @@ header img {
 
 .transform-to-small #registration-button,
 .transform-to-small #log-in-button,
+.transform-to-small #log-out-button,
+.transform-to-small #profile-button,
 .transform-to-small #title {
     color: var(--header-small-text-color);
 }
@@ -557,4 +563,13 @@ input[type='checkbox'] {
     top: 200px;
     width: 90px;
     height: 50px;
+}
+
+#not-find-user {
+    display: none;
+}
+
+#not-find-user.active {
+    display: block;
+    color: var(--incorrect-form-color);
 }

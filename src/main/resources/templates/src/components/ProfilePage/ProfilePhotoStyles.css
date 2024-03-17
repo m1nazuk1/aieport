@@ -1,0 +1,116 @@
+* {
+    font-family: "Lexend", sans-serif;
+    font-size: 20px;
+}
+
+body {
+    margin: auto;
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+#title {
+    color: var(--header-big-text-color);
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+#profile-log-out {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+}
+
+#profile-background {
+    background-image: url("../../images/airport1.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 800px;
+    margin: 0;
+}
+
+#user-and-tickets-info {
+    position: relative;
+    top: 150px;
+    margin: 0 280px;
+    height: 700px;
+    border-radius: 90px;
+    background-color: var(--content-background-color);
+}
+
+#user-info {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 40px;
+}
+
+#user-info img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    display: block;
+    margin-bottom: 40px;
+}
+
+#user-info input[type='file'] {
+    display: none;
+}
+
+#user-info label {
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#user-info label:hover {
+    background-color: var(--submit-flight-background-color);
+}
+
+#user-data {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+#attribute-names {
+    width: 100px;
+    align-self: flex-start;
+}
+
+#attribute-values {
+    width: 250px;
+}
+
+.attribute-value,
+.attribute-name {
+    margin-bottom: 10px;
+}
+
+#profile-header {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 45px;
+}
+
+#tickets-line {
+    margin: 80px 30px 20px;
+    background-color: gray;
+    height: 5px;
+    border-radius: 3px;
+}
