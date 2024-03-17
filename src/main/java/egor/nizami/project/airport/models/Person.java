@@ -63,17 +63,17 @@ public class Person {
     private String role;
 
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "person")
-//    @JsonManagedReference
-//    private List<Image> images = new ArrayList<>();
-//
-//    @Column(name = "preview_image_id")
-//    private int previewImageId;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "person")
+    @JsonManagedReference
+    private List<Image> images = new ArrayList<>();
 
-//    public void addImageToProduct(Image image) {
-//        image.setPerson(this);
-//        images.add(image);
-//    }
+    @Column(name = "preview_image_id")
+    private int previewImageId;
+
+    public void addImageToProduct(Image image) {
+        image.setPerson(this);
+        images.add(image);
+    }
 
     public Person() {
     }
@@ -161,19 +161,19 @@ public class Person {
         this.role = role;
     }
 
-//    public List<Image> getImages() {
-//        return images;
-//    }
-//
-//    public void setImages(List<Image> images) {
-//        this.images = images;
-//    }
-//
-//    public int getPreviewImageId() {
-//        return previewImageId;
-//    }
-//
-//    public void setPreviewImageId(int previewImageId) {
-//        this.previewImageId = previewImageId;
-//    }
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public int getPreviewImageId() {
+        return previewImageId;
+    }
+
+    public void setPreviewImageId(int previewImageId) {
+        this.previewImageId = previewImageId;
+    }
 }

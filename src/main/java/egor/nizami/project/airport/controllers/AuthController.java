@@ -6,6 +6,7 @@ import egor.nizami.project.airport.models.Person;
 import egor.nizami.project.airport.security.JWTUtil;
 import egor.nizami.project.airport.security.PersonDetails;
 //import egor.nizami.project.airport.services.ImageService;
+import egor.nizami.project.airport.services.ImageService;
 import egor.nizami.project.airport.services.PersonDetailsService;
 import egor.nizami.project.airport.services.RegistrationService;
 import egor.nizami.project.airport.util.PersonValidator;
@@ -31,7 +32,7 @@ import java.util.Map;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-//    private final ImageService imageService;
+    private final ImageService imageService;
     private final RegistrationService registrationService;
     private final PersonValidator personValidator;
     private final JWTUtil jwtUtil;
@@ -41,9 +42,10 @@ public class AuthController {
     private final PersonDetailsService personDetailsService;
 
 
-    public AuthController(RegistrationService registrationService, PersonValidator personValidator,
+    public AuthController(ImageService imageService, RegistrationService registrationService, PersonValidator personValidator,
                           JWTUtil jwtUtil, ModelMapper modelMapper, AuthenticationManager authenticationManager,
                           PersonDetailsService personDetailsService) {
+        this.imageService = imageService;
         this.registrationService = registrationService;
         this.personValidator = personValidator;
         this.jwtUtil = jwtUtil;
@@ -71,19 +73,19 @@ public class AuthController {
     }
 
 
-//    @Transactional
-//    @PutMapping("/forImage")
-//    public ResponseEntity<?> forImage(@RequestParam("image") MultipartFile image) throws IOException {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        if (authentication == null || !authentication.isAuthenticated()) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь не аутентифицирован");
-//        }
-//        Person person = personDetailsService.loadPersonByUsername(((PersonDetails) authentication.getPrincipal()).getUsername());
-//
-//        imageService.enterImageId(person.getUserName(), image);
-//
-//        return ResponseEntity.ok(Map.of("message", "данные пользователя успешно изменены"));
-//    }
+    @Transactional
+    @PutMapping("/forImage")
+    public ResponseEntity<?> forImage(@RequestParam("image") MultipartFile image) throws IOException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь не аутентифицирован");
+        }
+        Person person = personDetailsService.loadPersonByUsername(((PersonDetails) authentication.getPrincipal()).getUsername());
+
+        imageService.enterImageId(person.getUserName(), image);
+
+        return ResponseEntity.ok(Map.of("message", "данные пользователя успешно изменены"));
+    }
 
     //JSON:
     // {
