@@ -29,8 +29,7 @@ public class Image {
     @Column(name = "person_username")
     private String personUserName;
     private byte[] data;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "person_id",nullable = false)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JsonBackReference
     private Person person;
 
@@ -120,6 +119,7 @@ public class Image {
     }
 
     public void setPerson(Person person) {
+
         this.person = person;
     }
 }

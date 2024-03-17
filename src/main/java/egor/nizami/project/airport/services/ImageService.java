@@ -33,16 +33,13 @@ public class ImageService {
             image.setPreviewImage(true);
             image.setId(person.getId());
             image = imagesRepository.save(image);
+            person.addImageToProduct(image);
             person.setPreviewImageId(image.getId());
-            person.setImages(Collections.singletonList(image));
             image.setPerson(person);
             imagesRepository.save(image);
-
         }
 
-
         peopleRepository.save(person);
-
 
     }
 
