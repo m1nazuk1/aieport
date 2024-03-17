@@ -22,7 +22,7 @@ export default function Card() {
     function submitCard() {
         const cardData = {
             cardNumber: document.getElementById('card-number').value,
-            cardDate: document.getElementById('deadline-card').value,
+            cardDate: document.getElementById('month-input').value + '.' + '20' + document.getElementById('year-input').value,
             cvv: document.getElementById('CVV-input').value
         }
 
@@ -40,6 +40,8 @@ export default function Card() {
                 }
                 return response.json()
             })
+        closeModalWindow()
+        location.reload()
     }
 
     function closeModalWindow() {
@@ -52,7 +54,11 @@ export default function Card() {
             <img src={cancel} alt="close" onClick={closeModalWindow}/>
             <div id='front-card'>
                 <input type="text" id='card-number' placeholder='Card number'/>
-                <input type="date" id='deadline-card' defaultValue={`${year}-${month}-${day}`} min={`${year}-${month}-${day}`}/>
+                <div>
+                    <input type="text" placeholder='MM' id='month-input'/>
+                    <span>  /  </span>
+                    <input type="text" placeholder='YY' id='year-input'/>
+                </div>
             </div>
             <div id='back-card'>
                 <div id="black-line">

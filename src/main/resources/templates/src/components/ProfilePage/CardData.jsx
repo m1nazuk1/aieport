@@ -7,7 +7,7 @@ export default function CardData() {
     const [CVV, setCVV] = useState('-')
     const [date, setDate] = useState('-')
     const [className, setClassName] = useState('')
-    const [classNameToEdit, setClassNameToEdit] = useState('active')
+    const [classNameToEdit, setClassNameToEdit] = useState('')
 
     useEffect(() => {
         fetch('http://localhost:8080/paymentSystem/getInformation', {
@@ -25,10 +25,10 @@ export default function CardData() {
             .then(data => {
                 console.log(data)
                 if (data.paymentSystem === 'данных нет, Надо их ввести') {
-                    setClassNameToEdit('active')
+                    setClassName('active')
                 }
                 else {
-                    setClassName('active')
+                    setClassNameToEdit('active')
                     setCardNumber(data.cardNumber)
                     setCVV(data.cvv)
                     setDate(data.date)

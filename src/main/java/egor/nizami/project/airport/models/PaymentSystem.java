@@ -19,7 +19,7 @@ public class PaymentSystem {
     private String cardNumber;
 
     @NotEmpty(message = "дата не должна быть пустой")
-    @Size(min = 2, max = 6, message = "дата должна быть от 4 до 6 символов длиной")
+    @Size(min = 2, max = 8, message = "дата должна быть от 4 до 6 символов длиной")
     @Column(name = "card_date")
     private String cardDate;
 
