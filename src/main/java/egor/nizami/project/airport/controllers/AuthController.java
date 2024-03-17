@@ -73,9 +73,9 @@ public class AuthController {
     }
 
 
-    @Transactional
-    @PutMapping("/forImage")
+    @PostMapping("/forImage")
     public ResponseEntity<?> forImage(@RequestParam("image") MultipartFile image) throws IOException {
+        System.out.println("aasssddd");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь не аутентифицирован");

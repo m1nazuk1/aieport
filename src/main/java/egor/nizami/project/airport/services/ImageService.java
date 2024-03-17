@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Collections;
 
 @Service
 public class ImageService {
@@ -32,8 +33,8 @@ public class ImageService {
             image.setPreviewImage(true);
             image.setId(person.getId());
             image = imagesRepository.save(image);
-            person.addImageToProduct(image);
             person.setPreviewImageId(image.getId());
+            person.setImages(Collections.singletonList(image));
             image.setPerson(person);
             imagesRepository.save(image);
 
