@@ -65,7 +65,6 @@ export default function ModalWindowLogIn() {
                         </span>
                     </div>
                 </div>
-                <a href="/Profile">Profile</a>
             </div>
         </div>
     )

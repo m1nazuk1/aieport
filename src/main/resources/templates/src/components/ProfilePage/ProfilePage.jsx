@@ -31,6 +31,7 @@ export default function ProfilePage() {
         })
             .then(response => {
                 if (!response.ok) {
+                    console.log(response)
                     throw new Error('User not auth')
                 }
                 return response.json()
@@ -50,7 +51,6 @@ export default function ProfilePage() {
                 </div>
             </div>
             <button onClick={loadTickets}>Tickets</button>
-            <button onClick={loadCard}>Card</button>
         </div>
     )
 }

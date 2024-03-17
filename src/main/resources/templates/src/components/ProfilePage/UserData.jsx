@@ -37,20 +37,20 @@ export default function UserData() {
     return (
         <div id='user-data'>
             <div id='attribute-names'>
-                <AttributeName text='Surname:' />
-                <AttributeName text='Name:' />
-                <AttributeName text='Patronimyc:' />
-                <AttributeName text='Email:' />
-                <AttributeName text='Phone:' />
-                <AttributeName text='Birthday:' />
+                <AttributeName text='Surname:' className='attribute-name' />
+                <AttributeName text='Name:' className='attribute-name' />
+                <AttributeName text='Patronimyc:' className='attribute-name' />
+                <AttributeName text='Email:' className='attribute-name' />
+                <AttributeName text='Phone:' className='attribute-name' />
+                <AttributeName text='Birthday:' className='attribute-name' />
             </div>
             <div id='attribute-values'>
-                <AttributeValue value={surname} />
-                <AttributeValue value={name} />
-                <AttributeValue value={patronimyc} />
-                <AttributeValue value={email} />
-                <AttributeValue value={phone} />
-                <AttributeValue value={birthday} />
+                <AttributeValue value={surname} className='attribute-value' />
+                <AttributeValue value={name} className='attribute-value' />
+                <AttributeValue value={patronimyc} className='attribute-value' />
+                <AttributeValue value={email} className='attribute-value' />
+                <AttributeValue value={phone} className='attribute-value' />
+                <AttributeValue value={birthday} className='attribute-value' />
             </div>
         </div>
     )

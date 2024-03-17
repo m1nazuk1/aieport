@@ -1,6 +1,6 @@
 export default function AttributeName(props) {
     return (
-        <div className='attribute-name'>
+        <div className={props.className}>
             {props.text}
         </div>
     )

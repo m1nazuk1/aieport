@@ -46,6 +46,10 @@ export default  function ProfilePhoto() {
         location.reload()
     }
 
+    function clickSubmit() {
+        document.getElementById('submit-photo-button').click()
+    }
+
     return (
         <div>
             <form id='profile-photo-editing' encType='multipart/form-data' onSubmit={e => submitPhotoForm(e)}>
@@ -53,8 +57,8 @@ export default  function ProfilePhoto() {
                 <label htmlFor="download-profile-photo">
                     Edit profile photo
                 </label>
-                <input type="file" id='download-profile-photo' name='profile-photo' required/>
-                <input type="submit"/>
+                <input type="file" id='download-profile-photo' name='profile-photo' required onChange={clickSubmit}/>
+                <input type="submit" id='submit-photo-button'/>
             </form>
         </div>
     )

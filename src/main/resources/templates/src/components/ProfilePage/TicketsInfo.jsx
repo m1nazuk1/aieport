@@ -17,7 +17,6 @@ export default function TicketsInfo() {
                 return response.json()
             })
             .then(data => {
-                console.log(data.tickets)
                 setBuyingTickets(data.tickets)
             })
     }, []);

@@ -1,5 +1,6 @@
 import ProfilePhoto from "./ProfilePhoto.jsx";
 import UserData from "./UserData.jsx";
+import CardData from "./CardData.jsx";
 
 export default function UserInfo() {
     return (
@@ -8,8 +9,9 @@ export default function UserInfo() {
                 PROFILE
             </div>
             <div id='user-info'>
-                <ProfilePhoto/>
-                <UserData/>
+                <ProfilePhoto />
+                <UserData />
+                <CardData />
             </div>
         </div>
     )
