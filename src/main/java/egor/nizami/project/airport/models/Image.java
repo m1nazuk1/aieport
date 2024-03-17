@@ -29,7 +29,8 @@ public class Image {
     @Column(name = "person_username")
     private String personUserName;
     private byte[] data;
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id",nullable = false)
     @JsonBackReference
     private Person person;
 

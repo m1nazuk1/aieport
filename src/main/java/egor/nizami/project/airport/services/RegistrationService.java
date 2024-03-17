@@ -46,7 +46,6 @@ public class RegistrationService {
         person.setPreviewImageId(image.getId());
         person.setImages(Collections.singletonList(image));
 
-
         peopleRepository.save(person);
 
     }

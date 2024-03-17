@@ -9,6 +9,9 @@ export default function ModalWindowRegistration() {
     }
 
     function sendRegistrationForm() {
+
+        //http://localhost:8080/auth/forImage
+
         const data = {
             surname: document.getElementById('registration-surname').value,
             userName: document.getElementById('registration-name').value,
