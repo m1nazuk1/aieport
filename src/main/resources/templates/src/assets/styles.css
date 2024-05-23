@@ -1,0 +1,42 @@
+:root{
+    --main-background-color: #ffc632;
+    --main-minim-background-color: #ffffff;
+    --logo-background-color: #000000;
+    --logo-color: #ffffff;
+    --on-hover-header-text-color: #ffffff;
+    --on-hover-header-minim-text-color: #ffffff;
+    --header-minim-background-color: #ffffff;
+    --logo-minim-background-color: #000000;
+    --logo-minim-color: #ffffff;
+    --slider-buttons-color: rgba(255, 255, 255, 0.849);
+    --on-hover-slider-buttons-color: rgba(0, 0, 0, 0.541);
+    --first-gradient-flight-background-color: #6774d7;
+    --second-gradient-flight-background-color: #BBC0E6;
+    --first-button-background-color: #FFB41E;
+    --second-button-background-color: #FFDF8C;
+    --background-toggle-color: #FFDF8C;
+    --in-toggle-color: #5C8BA1;
+    --shadow-color: gray;
+    --shadow-modal-color: black;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("./Montserrat.ttf");
+}
+
+*{
+    font-family: Montserrat, sans-serif;
+}
+
+body{
+    margin: 0 215px;
+    background-color: var(--main-background-color);
+    height: 9000px;
+    padding-top: 350px;
+}
+
+body.modal_open{
+    position: fixed;
+    overflow-y: scroll;
+}

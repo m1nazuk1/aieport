@@ -1,0 +1,13 @@
+.slider_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_reg_close{
+    display: none;
+}
+
+.modal_log_in_close{
+    display: none;
+}

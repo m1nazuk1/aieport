@@ -1,0 +1,66 @@
+.toggle {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+    margin: auto 10px;
+}
+
+.switch_input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.switch_slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 34px;
+    background-color: var(--background-toggle-color);
+    transition: 0.4s;
+}
+
+.switch_slider::before {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    left: 4px;
+    bottom: 4px;
+    height: 26px;
+    width: 26px;
+    background-color: var(--in-toggle-color);
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.switch_input:checked + .switch_slider::before {
+    transform: translateX(26px);
+}
+
+.returning_text {
+    margin-right: 35px;
+    color: var(--flight-hotel-text-color);
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.one_way_text {
+    margin-left: 40px;
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.active{
+    visibility: visible;
+}

@@ -1,0 +1,79 @@
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_window{
+    position: relative;
+    z-index: 5;
+    width: 1200px;
+    height: 600px;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 20px 10px 50px var(--shadow-modal-color);
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--shadow-modal-color);
+    opacity: 0.7;
+}
+
+.title{
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.img_cancel{
+    margin-left: 450px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.img_cancel:hover{
+    cursor: pointer;
+}
+
+.flex_container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.first_column,
+.second_column{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-around;
+}
+
+.button_box{
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.button_box button{
+    width: 300px;
+    height: 70px;
+    font-size: 35px;
+    border: none;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 20px;
+    font-weight: 500;
+    background-image: linear-gradient(120deg , #b0b334, #e6e872);
+}

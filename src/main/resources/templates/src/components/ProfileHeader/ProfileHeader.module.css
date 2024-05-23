@@ -1,0 +1,119 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 1170px;
+    left: 215px;
+    top: 0;
+    padding: 20px 0;
+    transition: all 1s ease-in-out;
+    z-index: 1;
+}
+
+.header_minim{
+    background-color: var(--header-minim-background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 950px;
+    left: 255px;
+    top: 0;
+    padding: 30px 40px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 3px 10px var(--shadow-modal-color);
+    transition: all 1s ease-in-out;
+    z-index: 1;
+}
+
+.header__title{
+    display: flex;
+    align-items: center;
+    font-size: 80px;
+    transition: all 1s ease-in-out;
+}
+
+.header__title_minim{
+    display: flex;
+    align-items: center;
+    font-size: 60px;
+    transition: all 1s ease-in-out;
+}
+
+.header__title:hover{
+    cursor: pointer;
+}
+
+.header__title_minim:hover{
+    cursor: pointer;
+}
+
+.header__logo{
+    width: 100px;
+    height: 100px;
+    background-color: var(--logo-background-color);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--logo-color);
+    transition: all 1s ease-in-out;
+}
+
+.header__logo_minim{
+    width: 75px;
+    height: 75px;
+    background-color: var(--logo-minim-background-color);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--logo-minim-color);
+    transition: all 1s ease-in-out;
+}
+
+.header__phone,
+.header__buying,
+.header__log_out{
+    font-size: 33px;
+    transition: all 1s ease-in-out;
+}
+
+.header__buying,
+.header__log_out{
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-background-color);
+}
+
+.header__buying:hover,
+.header__log_out:hover{
+    color: var(--on-hover-header-minim-text-color);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button.header__buying_minim:hover,
+button.header__log_out_minim:hover{
+    cursor: pointer;
+}
+
+.header__phone_minim,
+.header__buying_minim,
+.header__log_out_minim{
+    font-size: 25px;
+    transition: all 1s ease-in-out;
+}
+
+.header__buying_minim,
+.header__log_out_minim{
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-minim-background-color);
+}

@@ -1,0 +1,25 @@
+.flight_form_container{
+    width: 485px;
+    height: 580px;
+    border-radius: 50px;
+    background-image: linear-gradient(220deg, var(--first-gradient-flight-background-color), var(--second-gradient-flight-background-color));
+    box-shadow: 10px 10px 10px var(--shadow-color);
+    margin-bottom: 200px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.flight_form_container__title{
+    font-size: 45px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.flight_inputs{
+    display: flex;
+    justify-content: center;
+}

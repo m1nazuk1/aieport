@@ -1,28 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {Route, Routes, BrowserRouter} from "react-router-dom";
-import MainPage from './components/MainPage/MainPage.jsx'
-import LoginedMainPage from "./components/MainPage/LoginedMainPage.jsx";
-import Cap from "./components/MainPage/Cap.jsx";
-import LoginedCap from "./components/MainPage/LoginedCap.jsx";
-import ProfilePage from "./components/ProfilePage/ProfilePage.jsx";
-import LoginedHeader from "./components/MainPage/LoginedHeader.jsx";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import MainPageHeader from "./components/MainPageHeader/MainPageHeader.jsx";
+import MainPageContent from "./components/MainPageContent/MainPageContent.jsx";
+import LoginedMainPageHeader from './components/LoginedMainPageHeader/LoginedMainPageHeader.jsx';
+import ProfileHeader from './components/ProfileHeader/ProfileHeader.jsx';
+import ProfilePageContent from './components/ProfilePageContent/ProfilePageContent.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-      <BrowserRouter>
-          <Routes>
-              <Route path='/' element={<Cap />} />
-              <Route path='/logined' element={<LoginedCap />} />
-              <Route path='/logined/Profile' element={<LoginedHeader />} />
-          </Routes>
-      </BrowserRouter>
-      <BrowserRouter>
-          <Routes>
-              <Route path='/' element={<MainPage />} />
-              <Route path='/logined' element={<LoginedMainPage />} />
-              <Route path='/logined/Profile' element={<ProfilePage />} />
-          </Routes>
-      </BrowserRouter>
-  </React.StrictMode>
+    <BrowserRouter>
+        <Routes>
+            <Route path='/' element={<MainPageHeader />} />
+            <Route path='/logined' element={<LoginedMainPageHeader/>} />
+            <Route path='/logined/profile' element={<ProfileHeader/>} />
+        </Routes>
+        <Routes>
+            <Route path='/' element={<MainPageContent />} />
+            <Route path='/logined' element={<MainPageContent />} />
+            <Route path='/logined/profile' element={<ProfilePageContent/>} />
+        </Routes>
+    </BrowserRouter>,
 )

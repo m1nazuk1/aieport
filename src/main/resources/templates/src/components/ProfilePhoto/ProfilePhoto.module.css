@@ -1,0 +1,35 @@
+.profile_photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    display: block;
+    margin-bottom: 40px;
+    object-fit: cover;
+}
+
+.submit_photo_button {
+    display: none;
+}
+
+input[type='file']{
+    display: none;
+}
+
+.form__container label {
+    padding: 5px;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.form__container label:hover {
+    background-color: gray;
+}
+
+.form__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

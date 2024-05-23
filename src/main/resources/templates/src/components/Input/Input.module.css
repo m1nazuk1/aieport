@@ -1,0 +1,20 @@
+.input{
+    border-radius: 10px;
+    width: 280px;
+    height: 30px;
+    border: 2px solid black;
+    padding-left: 5px;
+    font-size: 20px;
+    box-shadow: 5px 4px 10px var(--shadow-color);
+}
+
+.input_container{
+    display: flex;
+    margin-top: 20px;
+}
+
+.title{
+    font-size: 25px;
+    width: 130px;
+    font-weight: 550;
+}
