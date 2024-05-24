@@ -46,12 +46,17 @@ export default function LoginedMainPageHeader(){
     }
 
     function logOut(){
-        
+        localStorage.removeItem('JWT')
+        document.location.href = '../'
+    }
+
+    function toStart(){
+        window.scrollTo(0, 0)
     }
 
     return (
         <div className={s.header} id="header">
-            <div className={s.header__title} id="header__title">
+            <div className={s.header__title} id="header__title" onClick={toStart}>
                 <div className={s.header__logo} id="header__logo">
                     T
                 </div>

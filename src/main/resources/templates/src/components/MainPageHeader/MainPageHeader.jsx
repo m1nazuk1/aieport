@@ -52,9 +52,13 @@ export default function MainPageHeader(){
         document.getElementById('modal-log-in').classList.remove(side.modal_log_in_close)
     }
 
+    function goStart(){
+        window.scrollTo(0, 0)
+    }
+
     return (
         <div className={s.header} id="header">
-            <div className={s.header__title} id="header__title">
+            <div className={s.header__title} id="header__title" onClick={goStart}>
                 <div className={s.header__logo} id="header__logo">
                     T
                 </div>

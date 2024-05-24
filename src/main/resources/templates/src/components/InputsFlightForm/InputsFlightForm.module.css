@@ -18,3 +18,37 @@
 .back_date{
     visibility: hidden;
 }
+
+.counter_container{
+    display: flex;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.calculate{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+}
+
+.title{
+    width: 100px;
+}
+
+.minus{
+    margin-right: 13px;
+}
+
+.plus{
+    margin-left: 13px;
+}
+
+.plus:hover,
+.minus:hover{
+    cursor: pointer;
+}
+
+.value{
+    width: 20px;
+}

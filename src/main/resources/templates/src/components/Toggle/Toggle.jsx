@@ -10,7 +10,7 @@ export default function Toggle(){
         <div className={s.toggle}>
             <span className={s.one_way_text}>One way</span>
             <label className={s.switch}>
-                <input type="checkbox" className={s.switch_input} onChange={toggleDate} />
+                <input type="checkbox" id='toggle_back' className={s.switch_input} onChange={toggleDate} />
                 <span className={s.switch_slider}></span>
             </label>
             <span className={s.returning_text}>Returning</span>

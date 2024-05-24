@@ -13,7 +13,7 @@ export default class API{
         .then(response => response.json())
         .then(data => {
             if (data.message) {
-                errorMessage.textContent = data.message;
+                console.log(data.message);
             }
             else {
                 localStorage.setItem('JWT', data['jwt-token'])
@@ -47,7 +47,7 @@ export default class API{
             }
             else {
                 localStorage.setItem('JWT', data['jwt-token'])
-                document.getElementById('not-find-user').classList.remove('active')
+                document.getElementById('not_find_user').classList.remove('active')
                 document.getElementById('log-in-email').value = ''
                 document.getElementById('log-in-password').value = ''
                 document.querySelector('body').classList.remove('modal_open')
@@ -114,21 +114,17 @@ export default class API{
             return response.json()
         })
         .then(data => {
-            user.surname = data.surname
-            user.name = data.name
-            user.patronimyc = data.patronimyc
-            user.email = data.email
+            localStorage.setItem('surname', data.surname)
+            localStorage.setItem('name', data.name)
+            localStorage.setItem('patronymic', data.patronimyc)
             localStorage.setItem('email', data.email)
-            user.phone = data.phone
-            user.birthday = data.birthday
+            localStorage.setItem('phone', data.phone)
+            localStorage.setItem('birthday', data.birthday)
         })
-        return user
     }
 
     static getUserCardInfo(){
-        const card = {
-            exist: false
-        }
+        localStorage.setItem('cardExist', false)
         fetch('http://localhost:8080/paymentSystem/getInformation', {
             method: 'GET',
             headers: {
@@ -144,15 +140,66 @@ export default class API{
         .then(data => {
             console.log(data)
             if (data.paymentSystem === 'данных нет, Надо их ввести') {
-                
+                console.log("илья лох")
+                localStorage.setItem('cardNumber', '-')
+                localStorage.setItem('cvv', '-')
+                localStorage.setItem('cardDate', '-')
+                localStorage.setItem('cardExist', false)
             }
             else {
-                card.cardNumber = data.cardNumber
-                card.cvv = data.cvv
-                card.date = data.date
-                card.exist = true
+                localStorage.setItem('cardNumber', data.cardNumber)
+                localStorage.setItem('cvv', data.cvv)
+                localStorage.setItem('cardDate', data.date)
+                localStorage.setItem('cardExist', true)
             }
         })
-        return card
+    }
+
+    static addCard(cardData){
+        fetch('http://localhost:8080/paymentSystem/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('JWT')}`
+            },
+            body: JSON.stringify(cardData)
+        })
+        .then(response => {
+            if (!response) {
+                throw new Error('User not auth')
+            }
+            location.reload()
+        })
+    }
+
+    static pushTicket(ticket){
+        fetch(`http://localhost:8080/ticket/save`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('JWT')}`
+            },
+            body: JSON.stringify(ticket)
+        })
+    }
+
+    static getUserTickets(){
+        fetch('http://localhost:8080/ticket/ticketInformation', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('JWT')}`
+            }
+        })
+            .then(response => {
+                console.log(response)
+                if (!response){
+                    console.log('Error')
+                }
+                return response.json()
+            })
+            .then(data => {
+
+                localStorage.setItem('myTickets', JSON.stringify(data.tickets))
+            })
     }
 }

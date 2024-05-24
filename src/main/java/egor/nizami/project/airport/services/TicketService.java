@@ -31,8 +31,7 @@ public class TicketService {
 
 
     public List<Ticket> findAllTicketForUser(int personId){
-        List<Ticket> allTickets = ticketsRepository.findAllByPersonId(personId);
-        return allTickets;
+        return ticketsRepository.findAllByPersonId(personId);
     }
 
 

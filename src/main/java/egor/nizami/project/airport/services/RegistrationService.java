@@ -42,9 +42,9 @@ public class RegistrationService {
     public void register(Person person) throws IOException {
         person.setPassword(passwordEncoder.encode(person.getPassword()));
         person.setRole("ROLE_USER");
-//        Image image = imagesRepository.findById(1).get();
-//        person.setPreviewImageId(image.getId());
-//        person.setImages(Collections.singletonList(image));
+        Image image = imagesRepository.findById(1).get();
+        person.setPreviewImageId(image.getId());
+        person.setImages(Collections.singletonList(image));
 
         peopleRepository.save(person);
 

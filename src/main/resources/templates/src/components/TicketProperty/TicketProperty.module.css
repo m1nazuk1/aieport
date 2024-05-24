@@ -1,0 +1,13 @@
+.container{
+    font-size: 22px;
+    font-weight: 500;
+    width: 200px;
+    height: 80px;
+    justify-content: center;
+}
+
+.text{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}

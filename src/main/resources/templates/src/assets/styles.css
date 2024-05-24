@@ -40,3 +40,133 @@ body.modal_open{
     position: fixed;
     overflow-y: scroll;
 }
+
+#cards {
+    width: 750px;
+    height: 370px;
+}
+
+#front-card,
+#back-card {
+    width: 500px;
+    height: 300px;
+    border-radius: 35px;
+    background-color: white;
+}
+
+#back-card {
+    z-index: 3;
+    position: relative;
+    left: 250px;
+    top: 70px;
+}
+
+#front-card {
+    z-index: 4;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 3px 3px 9px black;
+}
+
+#black-line {
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    position: relative;
+    top: 60px;
+}
+
+#CVV-input {
+    position: absolute;
+    right: 80px;
+    top: 180px;
+    width: 90px;
+    height: 50px;
+    font-size: 30px;
+}
+
+#not-find-user {
+    display: none;
+}
+
+#not-find-user.active {
+    display: block;
+    color: red;
+}
+
+#card-number,
+#deadline-card {
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 30px;
+    display: block;
+}
+
+#card-number {
+    margin-top: 30px;
+}
+
+#deadline-card {
+    margin-bottom: 30px;
+}
+
+#back-card button {
+    position: relative;
+    top: 180px;
+    left: 100px;
+    padding: 8px 25px;
+    background-color: #4879db;
+    border-radius: 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#back-card button:hover {
+    background-color: blue;
+}
+
+#cards img {
+    width: 5%;
+    position: relative;
+    left: 700px;
+    top: 20px;
+    cursor: pointer;
+}
+
+#modal-card-buying {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+#modal-card-buying.active {
+    display: flex;
+}
+
+#month-input {
+    display: inline;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+#year-input {
+    display: inline;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 25px;
+}

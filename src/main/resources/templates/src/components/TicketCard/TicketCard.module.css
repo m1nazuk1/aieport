@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 100px;
+    padding: 20px 5px 0 5px;
+    background-image: linear-gradient(130deg, var(--main-background-color), #b0b334);
+    box-shadow: 10px 10px 30px gray;
+    transition: all 2s ease-in-out;
+    margin: 50px 0;
+}
+
+.container:hover{
+    cursor: pointer;
+    padding: 30px 50px 10px 50px;
+    box-shadow: 10px 10px 30px black;
+}

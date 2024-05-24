@@ -46,7 +46,8 @@ export default function ProfileHeader(){
     }
 
     function logOut(){
-        
+        localStorage.removeItem('JWT')
+        document.location.href = '../'
     }
 
     function goHome(){

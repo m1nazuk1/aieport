@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -49,7 +50,7 @@ public class TicketController {
         this.flightsService = flightsService;
     }
 
-
+    // проверка существуют ли вообще такие полеты
     @GetMapping("/payment")
     public ResponseEntity<?> payment(@RequestParam("fromPlace") String fromPlace, @RequestParam("toPlace") String toPlace) {
         try {
@@ -80,6 +81,28 @@ public class TicketController {
     }
 
 
+    @GetMapping("/ticketInformation")
+    public ResponseEntity<?> ticketInformation(){
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication == null || !authentication.isAuthenticated()) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь не аутентифицирован");
+            }
+            Person person = personService.foundByUsername(authentication.getName());
+
+            List<Ticket> tickets = ticketService.findAllTicketForUser(person.getId());
+
+            return ResponseEntity.ok(Map.of("tickets", tickets));
+//            return null;
+        } catch (ClassCastException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ошибка при обработке данных пользователя");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Внутренняя ошибка сервера");
+        }
+    }
+
+    //покупка билета
     @PostMapping("/save")
     @ResponseBody
     public ResponseEntity<?> saveTicket(@RequestBody TicketDTO ticketDTO, BindingResult bindingResult) throws IOException {
@@ -108,6 +131,7 @@ public class TicketController {
         }
 
     }
+
 
 
     public Ticket convertToTicket(TicketDTO ticketDTO) {
