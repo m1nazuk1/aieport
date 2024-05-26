@@ -1,8 +1,8 @@
-import Counter from "../Counter/Counter";
 import Input from "../Input/Input";
 import s from "./InputsFlightForm.module.css";
 import API from "../../assets/API.js";
 import {useState} from "react";
+import side from "../MainPageContent/MainPageContent.module.css";
 
 export default function InputsFlightForm(){
     function submitFlight(){
@@ -17,6 +17,8 @@ export default function InputsFlightForm(){
         }
         console.log(ticket)
         API.pushTicket(ticket)
+        document.querySelector('body').classList.add('modal_open')
+        document.getElementById('modal-flight').classList.remove(side.modal_flight_close)
     }
 
     const [countAdults, setCountAdults] = useState(0)
