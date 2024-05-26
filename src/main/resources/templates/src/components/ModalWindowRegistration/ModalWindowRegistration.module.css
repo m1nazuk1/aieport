@@ -77,3 +77,14 @@
     font-weight: 500;
     background-image: linear-gradient(120deg , #b0b334, #e6e872);
 }
+
+.passwords{
+    color: red;
+    font-weight: 500;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.passwords_match{
+    visibility: hidden;
+}

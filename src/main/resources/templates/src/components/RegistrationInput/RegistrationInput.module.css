@@ -1,4 +1,14 @@
-.input{
+.incorrect_input{
+    border-radius: 10px;
+    width: 280px;
+    height: 30px;
+    border: 3px solid red;
+    padding-left: 5px;
+    font-size: 20px;
+    box-shadow: 5px 4px 10px var(--shadow-color);
+}
+
+.correct_input{
     border-radius: 10px;
     width: 280px;
     height: 30px;
@@ -17,4 +27,16 @@
     font-size: 25px;
     width: 170px;
     font-weight: 550;
+}
+
+.incorrect_text{
+    text-align: center;
+    padding-top: 8px;
+    color: red;
+    font-weight: 600;
+    visibility: visible;
+}
+
+.correct_text{
+    visibility: hidden;
 }

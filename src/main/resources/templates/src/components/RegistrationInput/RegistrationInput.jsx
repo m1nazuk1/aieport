@@ -7,16 +7,23 @@ export default function RegistrationInput(props){
     const year = parseInt(dateNow.toISOString().slice(0, 4)) - 18
 
     return (
-        <div className={s.input_container}>
-            <div className={s.title}>
-                {props.text}
+        <div>
+            <div className={s.input_container}>
+                <div className={s.title}>
+                    {props.text}
+                </div>
+                <input type={props.type}
+                       className={props.type === 'date' ? s.correct_input : s.incorrect_input}
+                       id={props.id}
+                       min={(props.type == 'date') ? `${year}-${month}-${day}` : ''}
+                       placeholder={props.type == 'text' || props.type == 'email' ? props.placeholder : ''} 
+                       defaultValue={props.type == 'date' ? `${year}-${month}-${day}` : ''}
+                       onChange={props.onChange}
+                       autoComplete="new-password" />
             </div>
-            <input type={props.type}
-                   className={s.input}
-                   id={props.id}
-                   min={(props.type == 'date') ? `${year}-${month}-${day}` : ''}
-                   placeholder={props.type == 'text' || props.type == 'email' ? props.placeholder : ''} 
-                   defaultValue={props.type == 'date' ? `${year}-${month}-${day}` : ''}/>
+            <div className={props.type === 'date' ? `${s.correct_text} text` : `${s.incorrect_text} text`}>
+                Incorrect value
+            </div>
         </div>
     )
 }
