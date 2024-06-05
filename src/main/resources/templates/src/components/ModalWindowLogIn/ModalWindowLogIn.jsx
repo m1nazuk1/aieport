@@ -4,6 +4,7 @@ import RegistrationInput from "../RegistrationInput/RegistrationInput";
 import side from "../MainPageContent/MainPageContent.module.css";
 import { useEffect } from "react";
 import API from "../../assets/API";
+import LogInInput from "../LogInInput/LogInInput";
 
 export default function ModalWindowLogIn(){
     function closeLogIn(){
@@ -33,12 +34,12 @@ export default function ModalWindowLogIn(){
                     <img src={cancel} alt="cancel" className={s.img_cancel} onClick={closeLogIn} />
                 </div>
                 <div className={s.input_area}>
-                    <RegistrationInput
+                    <LogInInput
                         text='Email:'
                         type='email'
                         id='log-in-email'
                         placeholder='example@yandex.ru' />
-                    <RegistrationInput
+                    <LogInInput
                         text='Password:'
                         type='password'
                         id='log-in-password' />
